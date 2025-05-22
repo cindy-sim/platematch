@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #FFF7F0; /* cream */
+  color: #383838;
+}
+
+.shadow-t {
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.swipe-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 80px); /* Leave space for buttons */
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+  padding: 16px; /* Match Layout's p-4 */
+}
+
+.swipe-card:active {
+  cursor: grabbing;
+}
+
+/* Restrict movement to x-axis */
+.swipe-card > div {
+  transform: translateX(var(--translate-x, 0)) !important;
+  transition: transform 0.3s ease-out;
+}
+
+/* Prevent overflow */
+.swipe-card.swiping {
+  overflow: hidden;
+}
